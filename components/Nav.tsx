@@ -1,4 +1,4 @@
-import navlinks from "@/data/navlinks";
+import navlinks from "../data/navlinks";
 import Link from "next/link";
 
 const Nav = () => {
