@@ -1,6 +1,6 @@
-import Container from "@/components/Container"
-import metadata from "@/data/metadata";
-import RecentPosts from "@/components/RecentPosts";
+import Container from "../components/Container"
+import metadata from "../data/metadata";
+import RecentPosts from "../components/RecentPosts";
 
 export default function Home() {
   return (
