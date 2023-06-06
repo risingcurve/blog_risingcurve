@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Post } from "../.contentlayer/generated";
 
-
 const RecentPosts = ({ posts }: { posts: Post[] }) => {
   return (
     <section className={`mt-10`}>
