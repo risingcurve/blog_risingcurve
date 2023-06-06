@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Post } from "../.contentlayer/generated/types";
+import { Post } from "../.contentlayer/generated";
+
 
 const RecentPosts = ({ posts }: { posts: Post[] }) => {
   return (
