@@ -1,11 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {}
 
-module.exports = nextConfig
+// module.exports = nextConfig
 
 
-// const { withContentlayer } = require("next-contentlayer");
+const { withContentlayer } = require("next-contentlayer");
 
-// module.exports = withContentlayer({
-//   reactStrictMode: true,
-// });
+module.exports = withContentlayer({
+  reactStrictMode: true,
+});
