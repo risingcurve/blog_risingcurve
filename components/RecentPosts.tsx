@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Post } from "../.contentlayer/generated/types";
 
-const RecentPosts = ({ posts }: { posts: Post[] }) => {
+const RecentPosts = (posts : Post[]) => {
   return (
     <section className={`mt-10`}>
       <h1 className={`text-3xl font-extrabold`}>최근 게시물</h1>
