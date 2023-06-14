@@ -1,5 +1,11 @@
+import Container from "../components/Container";
+
 const Home = () => {
-  return <div className={`text-green-500 text-lg`}>Home</div>;
+  return (
+    <Container>
+      <span className={`font-bold`}>HOME</span>
+    </Container>
+  );
 };
 
 export default Home;
