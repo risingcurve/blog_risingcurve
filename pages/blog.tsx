@@ -1,5 +1,11 @@
+import Container from "../components/Container";
+
 const Blog = () => {
-  return <div className={`text-red-500 text-lg`}>Blog</div>;
+  return (
+    <Container>
+      <span className={`font-bold`}>BLOG</span>
+    </Container>
+  );
 };
 
 export default Blog;
