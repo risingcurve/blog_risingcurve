@@ -22,5 +22,4 @@ const RecentPosts = ({ posts }) => {
   );
 };
 
-
 export default RecentPosts;
