@@ -1,6 +1,6 @@
 import BlogPost from "../components/BlogPost";
 import Container from "../components/Container";
-import { allPosts } from "../.contentlayer/generated/index.d";
+import { allPosts } from "../.contentlayer/generated";
 import { InferGetServerSidePropsType } from "next/types";
 
 const Blog = ({ posts }: InferGetServerSidePropsType<typeof getStaticProps>) => {
