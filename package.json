@@ -14,7 +14,9 @@
     "next": "12.2.2",
     "next-contentlayer": "^0.2.6",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "rehype-pretty-code": "^0.9.9",
+    "shiki": "^0.14.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
