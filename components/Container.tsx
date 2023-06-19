@@ -3,6 +3,8 @@ import Head from "next/head";
 import metadata from "../data/metadata";
 import Nav from "./Nav";
 
+
+
 const Container = (props) => {
   const meta = {
     title: metadata.title,
@@ -30,7 +32,7 @@ const Container = (props) => {
             objectFit={`cover`}
             className={`rounded-full`}
           />
-          <span className={`mx-2 font-extralight text-lg`}>
+          <span className={`mx-2 font-extrabold text-lg`}>
             {metadata.title}
           </span>
         </div>

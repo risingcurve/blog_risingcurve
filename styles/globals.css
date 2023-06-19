@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'esamanru';
+  src: url('../styles/fonts/ttf/esamanru_Light.ttf') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'esamanru';
+  src: url('../styles/fonts/ttf/esamanru_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'esamanru';
+  src: url('../styles/fonts/ttf/esamanru_Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
+@font-face {
+  font-family: 'NanumSquereNeo';
+  src: url('../styles/fonts/woff/NanumSquareNeoTTF-aLt.woff') format('woff'),
+       url('../styles/fonts/woff2/NanumSquareNeoTTF-aLt.woff2') format('woff2'),
+       url('../styles/fonts/ttf/NanumSquareNeo-aLt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquereNeo';
+  src: url('../styles/fonts/woff/NanumSquareNeoTTF-bRg.woff') format('woff'),
+       url('../styles/fonts/woff2/NanumSquareNeoTTF-bRg.woff2') format('woff2'),
+       url('../styles/fonts/ttf/NanumSquareNeo-bRg.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquereNeo';
+  src: url('../styles/fonts/woff/NanumSquareNeoTTF-cBd.woff') format('woff'),
+       url('../styles/fonts/woff2/NanumSquareNeoTTF-cBd.woff2') format('woff2'),
+       url('../styles/fonts/ttf/NanumSquareNeo-cBd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquereNeo';
+  src: url('../styles/fonts/woff/NanumSquareNeoTTF-dEb.woff') format('woff'),
+       url('../styles/fonts/woff2/NanumSquareNeoTTF-dEb.woff2') format('woff2'),
+       url('../styles/fonts/ttf/NanumSquareNeo-dEb.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquereNeo';
+  src: url('../styles/fonts/woff/NanumSquareNeoTTF-eHv.woff') format('woff'),
+       url('../styles/fonts/woff2/NanumSquareNeoTTF-eHv.woff2') format('woff2'),
+       url('../styles/fonts/ttf/NanumSquareNeo-eHv.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+body {
+  line-height: 1;
+    font-family:'NanumSquereNeo','esamanru' 
+}
