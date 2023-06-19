@@ -1,0 +1,305 @@
+---
+title: 처음 만난 React | 섹션 0. 준비하기
+date: 2023-01-08
+description: 처음 만난 React 0. 준비하기
+category: react
+---
+
+## 1\. HTML과 CSS
+
+### HTML
+
+-   정의 : 웹사이트의 뼈대를 구성하기 위해 사용하는 마크업 언어
+
+### 태그
+
+-   태그를 사용해 구조를 형성하고 내용을 채움
+-   태그는 열었으면 꼭 닫아줘야 함.
+-   웹사이트의 뼈대를 구성하는 태그들
+-   `<html> <head> </head> <body> </body> </html> head : 웹사이트의 설명 등을 담고 있음. 메타데이터 body : 실제로 웹사이트에서 보이는 컨텐츠가 들어감`
+
+### SPA(Single Page Application)
+
+-   하나의 페이지만 존재하는 웹 사이트 또는 웹 애플리케이션  
+
+
+### CSS(Cascading Style Sheets)
+
+-   웹사이트의 레이아웃과 글꼴 등 디자인을 입히는 것.
+
+## 2\. JavaScript 소개 및 자료형
+
+### Javascript = ECMAScript
+
+-   html은 웹사이트의 뼈대, 자바스크립트는 웹사이트에 생명을 불어넣어 주는 역할
+-   스크립트 언어 : 프로그램이 실행되는 런타임에 코드가 해석됨.
+    -   컴파일 언어 : 컴파일이라는 과정에서 코드가 해석되고 실행가능하도록 변환.
+-   ES6(ECMAScript 2015, ES2015) ← 자바스크립트의 표준화
+
+### Javascript의 문법
+
+-   자료형
+    -   프로그램에서 자료를 자루기 위해 미리 정해놓은 유형
+    -   일반적으로는 변수를 선언하는 시점에 자료형이 결정되지만 자바스크립트에서는 변수에 데이터가 대입될 때 자료형이 결정 ← 동적 타이핑(Dynamic Typing)
+
+```
+// Number type
+let n1 = 1234;
+let n2 = 5.678;
+
+// Stirng type
+let s1 = "hello";
+let s2 = 'world';
+
+// Boolean type
+let b1 = true;
+let b2 = false;
+
+// Null type
+let n = null;
+
+// Undefined type
+let u1;
+let u2 = undefined;
+
+// Array type
+let arr = [1, 2, 3, 4];
+
+// Object type
+let obj = { a: "apple", b: "banana", c:"carrot" };
+```
+
+```
+// Number type
+let n1 = 1234;
+let n2 = 5.678;
+
+// String type
+let s1 = "hello";
+let s2 = 'world';
+
+// Boolean type
+let b1 = true;
+let b2 = false;
+
+// Null type
+let n = null;
+
+// Undefined type
+let u1;
+let u2 = undefined;
+
+// Array type
+let arr = [1, 2, 3, 4];
+
+// Object type
+let obj = { a: "apple", b:"banana", c: "carrot" };
+```
+
+```
+// Number 타입으로만 이루어진 배열
+let arr1 = [1, 2, 3, 4, 5];
+
+// String 타입으로만 이루어진 배열
+let arr2 = ["h", "e", "l"];
+
+// Number 타입과 String 타입을 함께 사용한 배열
+let arr3 = [1, "h", 4, "i"];
+
+// 다양한 자료형을 함께 사용한 배열
+let arr4 = [true, 1, undefined, false, "h", 2, null, "i"];
+
+console.log(arr1[0]);
+// 출력 결과 : 1
+
+console.log(arr2[1]);
+// 출력 결과 : e
+
+console.log(arr3[2]);
+// 출력 결과 : 2
+
+console.log(arr4[3]);
+// 출력 결과 : false
+```
+
+```
+// 값으로 String 타입만을 사용한 객체
+let obj1 = { a: "apple", b: "banana", c: "carrot" };
+
+// 값으로 Number 타입만을 사용한 객체
+let obj2 = { a: 1, b: 2, c: 3 };
+
+// 값으로 다양한 자료형들을 함께 사용한 객체
+let obj3 = { a: "hello", b: 100, c: [1, 2, 3, 4] };
+
+// 값으로 객체를 사용한 객체
+let obj4 = {
+    a: { a1: 1, a2: 2},
+    b: { b1: 3, b2: 4},
+    c: { c1: 5, c2: 6},
+};
+
+console.log(obj1['a']);
+// 출력 결과 : apple
+
+console.log(obj2.a);
+// 출력 결과 : 1
+
+console.log(obj3.a);
+// 출력 결과 : [1, 2, 3, 4]
+
+console.log(obj4.c.c2);
+// 출력 결과 : 6
+```
+
+-   참고 : [자바스크립트 공식문서](https://developer.mozilla.org/ko/docs/Web/JavaScript)
+
+## 3\. Javascript의 연산자
+
+### 연산자
+
+-   대입 연산자(Assignment operator) : ‘=’의 오른쪽에서 왼쪽으로 대입.
+-   `let a = 10; let b = 20; console.log(a); // 출력 결과 : 10 console.log(b); // 출력 결과 : 20`
+
+### 사칙 연산자
+
+-   사칙 연산자
+    -   +, -, \*, /
+-   산술 연산자
+    -   사칙 연산자
+    -   % : 나머지 구하기
+    -   \*\* : 지수 구하기
+
+````
+```jsx
+let a = 2;
+let b = 4;
+
+console.log(a + b);
+// 출력 결과 : 6
+
+console.log(a - b);
+// 출력 결과 : -2
+
+console.log(a * b);
+// 출력 결과 : 8
+
+console.log(a / b);
+// 출력 결과 : 0.5
+
+console.log(a % b);
+// 출력 결과 : 2
+
+console.log(a ** b);
+// 출력 결과 : 16
+```
+
+
+```jsx
+let a = 2;
+let b = 4;
+
+a += b; // a = a + b
+console.log(a);
+// 출력 결과 : 6
+
+a -= b; // a = a - b
+console.log(a);
+// 출력 결과 : 2
+
+a *= b; // a = a * b
+console.log(a);
+// 출력 결과 : 8
+
+a /= b; // a = a / b
+console.log(a);
+// 출력 결과 : 2
+```
+````
+
+-   증가 연산자(++) : a++, ++a
+-   감소 연산자(—) : a—, —a
+
+```
+let a = 1;
+let b = a++;
+
+console.log(a, b);
+// 출력 결과 : 2, 1
+
+let c = 1;
+let d = ++c;
+
+console.log(c, d);
+// 출력 결과 : 2, 2
+```
+
+-   관계 연산자 = 비교 연산자
+    -   `<, >, ≤, ≥`
+
+```
+let a = 1;
+let b = 2;
+
+console.log(a < b);
+// 출력 결과 : true
+
+console.log(a > b);
+// 출력 결과 : false
+
+console.log(a <= b);
+// 출력 결과 : true
+
+console.log(a >= b);
+// 출력 결과 : false
+```
+
+-   동등 연산자
+    -   a == b : a와 b가 같다.
+    -   a ≠ b : a와 b가 같지 않다.
+-   일치연산자
+    -   a === b : a가 b와 값과 자료형이 모두 같다.
+    -   a !== b : a가 b와 값과 자료형이 같지 않다.
+
+```
+let a = 1;
+let b = '1';
+
+console.log(a == b);
+// 출력 결과 : true
+
+console.log(a != b);
+// 출력 결과 : false
+
+console.log(a === b);
+// 출력 결과 : false
+
+console.log(a !== b);
+// 출력 결과 : true
+```
+
+-   이진 논리 연산자
+    -   a && b : a와 b가 모두 true일 경우에만 true
+    -   a || b : a 또는 b가 true일 경우에는 true
+
+```
+let a = true;
+let b = false;
+
+console.log(a && b);
+// 출력 결과 : false
+
+console.log(a || b);
+// 출력 결과 : true
+```
+
+-   조건부 연산자 = 삼항 연산자
+    -   조건식 ? true일 경우 : false일 경우
+    -   `let a = true; let b = false; console.log(a ? 1 : 2); // 출력 결과 : 1 console.log(b ? 1 : 2); // 출력 결과 : 2`
+
+## Javascript의 함수
+
+### 함수
+
+-   함수란 입력을 받아서 정해진 출력을 하는 것
+-   입력 : 파라미터, 인자
