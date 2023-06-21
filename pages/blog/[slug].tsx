@@ -12,12 +12,14 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   };
 
   return (
-    <Container customMeta={customMeta}>
-      <div className="mt-10 prose">
-        <h1 className="text-sky-700">{post.title}</h1>
-        <MDXComponent />
-      </div>
-    </Container>
+    <div className="flex items-center content-center justify-center">
+      <Container customMeta={customMeta}>
+        <div className="mt-10 prose">
+          <h1 className="text-sky-700">{post.title}</h1>
+          <MDXComponent />
+        </div>
+      </Container>
+    </div>
   );
 };
 
