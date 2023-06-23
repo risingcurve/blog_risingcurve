@@ -5,8 +5,9 @@ const RecentPosts = ({ posts }) => {
   
 
   return (
-    <section className={`mt-10`}>
-      <h1 className={`text-3xl font-extrabold`}>최근 게시물</h1>
+    <section className={`mt-10 pt-10 pl-5 pr-5 pb-10 bg-white `}>
+    {/* <section className={`mt-10 pt-10 pl-5 pr-5 pb-10 bg-white border-2 rounded-xl border-gray-300`}> */}
+      <h1 className={`text-3xl  mb-5 pb-10 font-extrabold border-b-2`}>최근 게시물</h1>
       <div className={`flex flex-col`}>
         {posts.slice(0, 5).map((post) => (
           <Link
@@ -14,10 +15,10 @@ const RecentPosts = ({ posts }) => {
             href={`/blog/${post._raw.flattenedPath}`}
             passHref
           >
-            <a className="mt-10">
-              <div className={`font-bold text-xs text-gray-500 mb-2`}>{usDateString(post.date)}</div>
-              <div className={`font-bold text-xl`}>{post.title}</div>
-              <div className={`font-bold text-sm text-gray-500 mt-2`}>{post.category} | {post.description}</div>
+            <a className="mt-5 mb-5">
+              <div className={`font-bold text-xs text-gray-500`}>{usDateString(post.date)}</div>
+              <div className={`font-extrabold text-xl mt-2 mb-2`}>{post.title}</div>
+              <div className={`font-bold text-sm text-gray-500 pb-10 border-b`}>{post.category} | {post.description}</div>
             </a>
           </Link>
         ))}
