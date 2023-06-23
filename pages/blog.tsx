@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import BlogPost from "../components/BlogPost";
+import BlogPost from "../components/blog/BlogPost";
 import Container from "../components/Container";
 import { allPosts } from "contentlayer/generated";
 import { InferGetStaticPropsType } from "next";
