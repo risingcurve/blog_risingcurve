@@ -1,6 +1,5 @@
 const { withContentlayer } = require("next-contentlayer");
 
-
 const nextConfig = {
   env: {
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
@@ -8,6 +7,6 @@ const nextConfig = {
 };
 
 module.exports = withContentlayer({
-  nextConfig,
   reactStrictMode: true,
+  nextConfig,
 });
