@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "types": ["@types/gtag.js"],
     "paths": {
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
