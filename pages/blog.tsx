@@ -3,6 +3,7 @@ import BlogPost from "../components/blog/BlogPost";
 import Container from "../components/Container";
 import { allPosts } from "contentlayer/generated";
 import { InferGetStaticPropsType } from "next";
+import usDateString from "../lib/usDateString"
 
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -10,7 +11,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <div className={`mt-10 flex flex-col`}>
         {posts.map((post) => (
           <BlogPost
-            date={post.date}
+            date={usDateString(post.date)}
             title={post.title}
             des={post.description}
             slug={post._raw.flattenedPath}
