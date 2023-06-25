@@ -6,10 +6,10 @@ interface CategoryListProps {
   select: string;
 }
 
-const selectedStyle =
-  'px-3 py-1 bg-green-100 dark:bg-green-900 border-2 border-gray-700 dark:border-gray-300 rounded-2xl sm:text-lg';
 const defaultStyle =
-  'px-3 py-1 sm:text-lg border-2 border-gray-700 dark:border-gray-300 rounded-2xl transition-transform duration-300 hover:scale-110';
+  'px-3 py-1 sm:text-base border-2 border-gray-700 dark:border-gray-300 rounded-2xl transition-transform duration-300 hover:scale-110';
+const selectedStyle =
+  'px-3 py-1 bg-violet-900 dark:bg-green-900 border-2 border-gray-700 dark:border-gray-300 rounded-2xl sm:text-base text-white font-extrabold';
 
 export default function CategoryList({ setSelect, select }: CategoryListProps) {
   return (

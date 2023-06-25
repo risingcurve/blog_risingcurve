@@ -35,9 +35,9 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         {/* <RecentPosts posts={posts} /> */}
         <CategoryList select={select} setSelect={setSelect} />
         {select === '' ? (
-          <PostList posts={posts} />
+          <RecentPosts posts={posts} />
         ) : (
-          <PostList posts={(posts as Post[]).filter((post) => post.category === select)} />
+          <RecentPosts posts={(posts as Post[]).filter((post) => post.category === select)} />
         )}
       </div>
     </Container>
