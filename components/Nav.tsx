@@ -15,7 +15,7 @@ const Nav = () => {
           width={40}
           height={40}
           objectFit={`cover`}
-          className={`rounded-full`}
+          className={``}
         />
         <span className={`mx-2 font-extrabold text-lg`}>
           {metadata.title}
