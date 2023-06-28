@@ -11,9 +11,9 @@ export const categorys: { title: string; keyword: string }[] = [
   { title: 'Flutter', keyword: 'flutter' },
   { title: 'Java', keyword: 'java' },
   { title: 'Spring', keyword: 'spring' },
-  // { title: 'Spring Boot', keyword: 'springboot' },
+  { title: 'Spring Boot', keyword: 'springboot' },
   { title: 'Algorithm', keyword: 'algorithm' },
   { title: 'Git', keyword: 'git' },
-  // { title: 'Web', keyword: 'web' },
+  { title: 'Web', keyword: 'web' },
   { title: 'etc', keyword: 'etc' },  
 ];
