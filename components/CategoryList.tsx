@@ -7,13 +7,13 @@ interface CategoryListProps {
 }
 
 const defaultStyle =
-  'px-3 py-1 sm:text-base border-2 border-gray-700 dark:border-gray-300 rounded-2xl transition-transform duration-300 hover:scale-110';
+  'px-3 py-1 text-sm border-2 border-gray-700 dark:border-gray-300 rounded-2xl transition-transform duration-300 hover:scale-110';
 const selectedStyle =
-  'px-3 py-1 bg-violet-900 dark:bg-green-900 border-2 border-gray-700 dark:border-gray-300 rounded-2xl sm:text-base text-white font-extrabold';
+  'px-3 py-1 text-sm bg-violet-900 dark:bg-green-900 border-2 border-gray-700 dark:border-gray-300 rounded-2xl text-white font-extrabold';
 
 export default function CategoryList({ setSelect, select }: CategoryListProps) {
   return (
-    <div className="flex justify-between flex-wrap gap-4 mt-5">
+    <div className="flex justify-start flex-wrap gap-4 mt-5">
       {categorys.map((category) => {
         if (select === category.keyword)
           return (
