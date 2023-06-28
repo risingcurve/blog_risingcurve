@@ -13,7 +13,7 @@ const Container = (props) => {
   };
 
   return (
-    <div className={`bg-white w-full flex flex-col items-center p-3`}>
+    <div className={`bg-white w-full flex flex-col items-center`}>
       <Head>
         <title>{meta.title}</title>
         <meta content={meta.description} name="description" />

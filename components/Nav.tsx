@@ -6,7 +6,7 @@ import metadata from "../data/metadata";
 const Nav = () => {
   return (
     <header
-      className={`w-full max-w-6xl flex flex-row justify-between items-center bg-white h-16 border-b-2`}
+      className={`w-full max-w-6xl flex flex-row justify-between items-center bg-white h-16`}
     >
       <div className={`flex flex-row items-center`}>
         <Image
