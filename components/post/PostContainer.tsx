@@ -1,6 +1,6 @@
 import Head from "next/head";
-import metadata from "../data/metadata";
-// import Nav from "./Nav";
+import metadata from "../../data/metadata";
+import Nav from "./../Nav";
 
 
 
@@ -20,9 +20,9 @@ const Container = (props) => {
         <meta property="og:site_name" content={meta.author} />
       </Head>
 
-        {/* <Nav /> */}
+        <Nav />
 
-      <main className={`w-full max-w-6xl`}>{props.children}</main>
+      <main className={`w-full max-w-4xl flex justify-center`}>{props.children}</main>
     </div>
   );
 };

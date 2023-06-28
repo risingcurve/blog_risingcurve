@@ -6,9 +6,9 @@ import metadata from "../data/metadata";
 const Nav = () => {
   return (
     <header
-      className={`w-full max-w-7xl flex flex-row justify-between items-center my-1 bg-white`}
+      className={`w-full max-w-6xl flex flex-row justify-between items-center bg-white h-16 border-b-2`}
     >
-      <div className={`flex flex-row items-center ml-5`}>
+      <div className={`flex flex-row items-center`}>
         <Image
           src={`/logo.jpg`}
           alt="로고"
@@ -24,7 +24,7 @@ const Nav = () => {
       <nav>
         {navlinks.map((nav) => (
           <Link href={nav.link} key={nav.title}>
-            <a className={`mr-5`}>{nav.title}</a>
+            <a className={`mr-3`}>{nav.title}</a>
           </Link>
         ))}
       </nav>
