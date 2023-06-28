@@ -60,6 +60,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           </span> */}
           </div>
           {/* <RecentPosts posts={posts} /> */}
+          <h1 className={`text-3xl mt-10 mb-5 pb-5 font-extrabold`}>최근 포스팅</h1>
           <CategoryList select={select} setSelect={setSelect} />
           {select === '' ? (
             <RecentPosts posts={posts} />

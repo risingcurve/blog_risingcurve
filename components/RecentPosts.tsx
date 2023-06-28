@@ -2,12 +2,11 @@ import Link from "next/link";
 import usDateString from "../lib/usDateString"
 
 const RecentPosts = ({ posts }) => {
-  
 
   return (
-    <section className={`pt-10  pb-10 bg-white `}>
+    <section className={`pt-5 pb-10 bg-white `}>
     {/* <section className={`mt-10 pt-10 pl-5 pr-5 pb-10 bg-white border-2 rounded-xl border-gray-300`}> */}
-      <h1 className={`text-3xl mb-5 pb-10 font-extrabold border-b-2`}>최근 게시물</h1>
+
       <div className={`flex flex-col`}>
         {posts.slice(0, 5).map((post) => (
           <Link
