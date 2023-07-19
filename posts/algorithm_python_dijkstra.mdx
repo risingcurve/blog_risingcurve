@@ -1,0 +1,92 @@
+---
+title: 알고리즘 이론 | 다익스트라(Dijkstra) 파이썬으로 구현하기
+date: 2023-04-01
+description: 파이썬으로 다익스트라를 구현하는 방법에 대해 알아봅니다.
+category: algorithm
+---
+
+파이썬에서 다익스트라(Dijkstra) 알고리즘을 구현하는 방법은 여러 가지가 있지만, 여기서는 우선순위 큐(priority queue)를 이용하여 구현하는 방법을 설명하겠습니다.
+
+다익스트라 알고리즘은 그리디 알고리즘으로, 시작 정점에서부터 가장 짧은 경로를 가지는 정점부터 차례로 선택해가며 최단 경로를 구하는 알고리즘입니다. 이 알고리즘은 최소 힙(min heap)을 사용하는 우선순위 큐를 이용하여 구현할 수 있습니다.
+
+아래는 파이썬으로 우선순위 큐를 이용한 다익스트라 알고리즘의 구현 예시입니다.
+
+### 예제 1)
+
+```python
+import heapq
+
+def dijkstra(graph, start):
+    pq = []  # 우선순위 큐
+    dist = {start: 0}  # 최단 경로 길이를 저장하는 딕셔너리
+    heapq.heappush(pq, (0, start))  # 시작 정점을 우선순위 큐에 추가
+
+    while pq:
+        cost, node = heapq.heappop(pq)
+        if node in dist and dist[node] < cost:
+            continue
+        for neighbor, weight in graph[node]:
+            new_cost = cost + weight
+            if neighbor not in dist or new_cost < dist[neighbor]:
+                dist[neighbor] = new_cost
+                heapq.heappush(pq, (new_cost, neighbor))
+
+    return dist
+```
+
+위의 코드에서 graph는 인접 리스트 형태로 주어진 그래프를 나타내며, start는 시작 정점입니다. pq는 우선순위 큐로, (cost, node) 형태로 저장됩니다. dist는 현재까지의 최단 경로 길이를 저장하는 딕셔너리입니다.
+
+우선순위 큐에서 가장 작은 경로 길이를 가지는 정점을 꺼내어 그 정점과 이어지는 간선을 순회합니다. 만약 이어지는 정점의 최단 경로가 아직 계산되지 않았거나, 현재까지 저장된 최단 경로보다 작은 경로를 찾으면 최단 경로를 갱신해주고, 우선순위 큐에 추가합니다. 이 때, heapq.heappush 함수를 이용하여 우선순위 큐에 추가하면 자동으로 최소 힙(min heap)이 유지됩니다.
+
+이렇게 구현된 다익스트라 알고리즘은 시간 복잡도가 O((V+E)logV)이며, V는 정점의 수, E는 간선의 수를 의미합니다.
+
+### 예제 2)
+
+```python
+import heapq
+import sys
+
+def dijkstra(graph, start):
+    # 시작 노드의 최단 경로는 0으로 초기화
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+
+    # 시작 노드부터 탐색을 시작하기 위해 우선순위 큐에 삽입
+    queue = [(0, start)]
+
+    while queue:
+        # 현재 가장 최단 거리가 짧은 노드 선택
+        current_distance, current_node = heapq.heappop(queue)
+
+        # 이전에 이미 처리된 노드라면 무시
+        if distances[current_node] < current_distance:
+            continue
+
+        # 선택된 노드의 인접 노드들을 탐색하면서 거리 갱신
+        for adjacent, weight in graph[current_node].items():
+            distance = current_distance + weight
+            if distance < distances[adjacent]:
+                distances[adjacent] = distance
+                heapq.heappush(queue, (distance, adjacent))
+
+    return distances
+```
+
+위 코드에서 graph는 다음과 같이 인접 리스트 형태로 주어집니다.
+
+```python
+graph = {
+    'A': {'B': 5, 'C': 1},
+    'B': {'A': 5, 'C': 2, 'D': 1},
+    'C': {'A': 1, 'B': 2, 'D': 4, 'E': 8},
+    'D': {'B': 1, 'C': 4, 'E': 3, 'F': 6},
+    'E': {'C': 8, 'D': 3},
+    'F': {'D': 6}
+}
+```
+
+위 코드에서는 distances라는 딕셔너리를 사용하여 시작 노드로부터의 거리를 저장합니다. 처음에는 시작 노드를 제외한 모든 노드들의 거리를 무한대(float('inf'))로 초기화합니다. queue라는 우선순위 큐에 시작 노드와 거리 0을 삽입합니다. 이후에는 다음과 같은 과정을 반복합니다.
+
+queue에서 거리가 가장 짧은 노드를 선택합니다. 이전에 이미 선택된 노드라면 무시합니다. 선택된 노드와 연결된 인접 노드들을 탐색하면서 거리를 갱신합니다. 이 때, 이전까지의 최단 거리보다 더 짧은 경로를 찾았다면 distances에 갱신된 거리를 저장하고, queue에 새로운 노드와 거리를 삽입합니다.
+
+이 과정을 반복하면서, 모든 노드들의 최단 경로를 찾아내고, distances 딕셔너리에 저장된 값을 반환합니다.

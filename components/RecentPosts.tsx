@@ -8,7 +8,7 @@ const RecentPosts = ({ posts }) => {
     {/* <section className={`mt-10 pt-10 pl-5 pr-5 pb-10 bg-white border-2 rounded-xl border-gray-300`}> */}
 
       <div className={`flex flex-col`}>
-        {posts.slice(0, 5).map((post) => (
+        {posts.slice(0, 10).map((post) => (
           <Link
             key={post._id}
             href={`/blog/${post._raw.flattenedPath}`}

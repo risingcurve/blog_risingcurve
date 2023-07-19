@@ -1,0 +1,43 @@
+---
+title: 알고리즘 이론 | 백트래킹(Backtracking) 파이썬으로 구현하기
+date: 2023-03-14
+description: 파이썬으로 백트래킹을 구현하는 방법에 대해 알아봅니다.
+category: algorithm
+---
+
+백트래킹(Backtracking)은 해를 찾는 도중에 가능성이 없는 부분을 차단하여 불필요한 탐색을 줄이는 알고리즘입니다. 파이썬에서는 다음과 같이 백트래킹 알고리즘을 구현할 수 있습니다.
+
+### 예제: N-Queen 문제
+
+N x N 크기의 체스판 위에 N개의 퀸을 놓는 문제입니다. 퀸은 가로, 세로, 대각선 방향으로 모두 공격할 수 있으므로, 서로 공격할 수 없도록 N개의 퀸을 놓는 문제입니다. 백트래킹 알고리즘을 사용하여 퀸을 놓을 수 있는 모든 경우의 수를 구합니다.
+
+```python
+def is_available(candidate, current_col):
+    current_row = len(candidate)
+    for queen_row in range(current_row):
+        if candidate[queen_row] == current_col or \
+            candidate[queen_row] - queen_row == current_col - current_row or \
+            candidate[queen_row] + queen_row == current_col + current_row:
+            return False
+    return True
+
+def dfs(n, current_row, current_candidate, final_result):
+    if current_row == n:
+        final_result.append(current_candidate[:])
+        return
+    for candidate_col in range(n):
+        if is_available(current_candidate, candidate_col):
+            current_candidate.append(candidate_col)
+            dfs(n, current_row + 1, current_candidate, final_result)
+            current_candidate.pop()
+
+def solve_n_queens(n):
+    final_result = []
+    dfs(n, 0, [], final_result)
+    return final_result
+
+
+print(solve_n_queens(4))  # 출력 결과: [[1, 3, 0, 2], [2, 0, 3, 1]]
+```
+
+위 코드에서 is\_available() 함수는 현재 퀸이 놓을 수 있는 위치인지 검사하는 함수입니다. dfs() 함수는 백트래킹 알고리즘을 구현한 함수로, 현재 놓을 수 있는 퀸의 후보를 찾아서 재귀적으로 탐색합니다. 모든 행에 대해 재귀적으로 탐색을 마치면 결과를 final\_result 리스트에 추가합니다. solve\_n\_queens() 함수는 전체 문제를 해결하기 위해 dfs() 함수를 호출하는 함수입니다. solve\_n\_queens(4)를 호출하면, 결과로 \[\[1, 3, 0, 2\], \[2, 0, 3, 1\]\]와 같이 2개의 가능한 경우의 수를 구할 수 있습니다.
