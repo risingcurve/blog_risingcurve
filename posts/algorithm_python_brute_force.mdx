@@ -1,0 +1,44 @@
+---
+title: 알고리즘 이론 | 완전탐색(Brute-force) 파이썬으로 구현하기
+date: 2023-03-11
+description: 파이썬으로 완전탐색을 구현하는 방법에 대해 알아봅니다.
+category: algorithm
+---
+
+완전탐색(Brute-force)은 가능한 모든 경우를 검사하여 답을 찾는 알고리즘 기법입니다. 파이썬에서는 다음과 같이 완전탐색을 구현할 수 있습니다.
+​
+### 예제1: 주어진 리스트에서 최대값 찾기
+​
+```python
+def find_max(lst):
+    max_value = lst[0]
+    for i in range(1, len(lst)):
+        if lst[i] > max_value:
+            max_value = lst[i]
+    return max_value
+​
+# 주어진 리스트에서 최대값 찾기
+lst = [3, 1, 5, 2, 4]
+print(find_max(lst))
+```
+​
+위 코드에서 `find_max()` 함수는 주어진 리스트에서 최대값을 찾아 리턴합니다. `max_value` 변수에 리스트의 첫번째 값을 할당하고, 반복문을 통해 리스트의 각 요소를 검사하면서 `max_value`보다 큰 값이 나오면 `max_value`에 해당 값을 할당합니다. 반복문을 마치고 나면 `max_value`에는 리스트의 최대값이 저장되어 있습니다.
+​
+### 예제2: 비밀번호 만들기
+​
+주어진 문자열 집합으로 가능한 모든 비밀번호 조합을 생성하는 예제입니다.
+​
+```python
+def find_max(lst):
+    max_value = lst[0]
+    for i in range(1, len(lst)):
+        if lst[i] > max_value:
+            max_value = lst[i]
+    return max_value
+​
+# 주어진 리스트에서 최대값 찾기
+lst = [3, 1, 5, 2, 4]
+print(find_max(lst))
+```
+​
+위 코드에서는 `itertools` 모듈의 `product()` 함수를 사용하여 가능한 모든 조합을 생성합니다. `chars` 리스트에서 `n`개의 문자를 선택하여 가능한 모든 조합을 생성합니다. 각 조합은 튜플 형태로 반환되므로, `join()` 함수를 사용하여 문자열로 변환한 후 출력합니다.

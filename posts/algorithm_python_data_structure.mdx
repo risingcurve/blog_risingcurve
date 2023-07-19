@@ -1,0 +1,296 @@
+---
+title: 알고리즘 이론 | 파이썬 자료구조
+date: 2023-03-10
+description: 파이썬의 자료구조에 대해 알아봅니다.
+category: algorithm
+---
+
+파이썬에서는 다양한 자료구조를 제공합니다. 각 자료구조의 특징과 사용 방법을 살펴보겠습니다.
+
+## 리스트(List)
+
+리스트는 순서가 있는 데이터의 집합으로, 대괄호(\[\])로 표현합니다. 원소들은 쉼표로 구분합니다. 리스트는 수정이 가능하며, 인덱싱과 슬라이싱을 통해 데이터를 접근할 수 있습니다.
+
+예시:
+
+```python
+a = [1, 2, 3, 4, 5]  # 리스트 생성
+print(a)  # [1, 2, 3, 4, 5]
+print(a[0])  # 1
+print(a[2:4])  # [3, 4]
+a[1] = 10  # 리스트 값 수정
+print(a)  # [1, 10, 3, 4, 5]
+```
+
+## 튜플(Tuple)
+
+튜플은 리스트와 유사하지만, 수정이 불가능합니다. 소괄호(())로 표현합니다.
+
+예시:
+
+```python
+a = (1, 2, 3)  # 튜플 생성
+print(a)  # (1, 2, 3)
+print(a[0])  # 1
+a[1] = 10  # TypeError: 'tuple' object does not support item assignment
+```
+​
+## 집합(Set)
+​
+집합은 중복을 허용하지 않는 데이터의 집합으로, 중괄호({})로 표현합니다.
+​
+예시:
+​
+```python
+a = {1, 2, 3}  # 집합 생성
+print(a)  # {1, 2, 3}
+b = {3, 4, 5}
+print(a.union(b))  # {1, 2, 3, 4, 5}
+```
+​
+## 딕셔너리(Dictionary)
+​
+딕셔너리는 키-값 쌍으로 이루어진 데이터의 집합으로, 중괄호({})로 표현합니다. 키를 이용해 값을 접근할 수 있습니다.
+​
+예시:
+​
+```python
+a = {'apple': 1000, 'banana': 2000, 'orange': 1500}  # 딕셔너리 생성
+print(a)  # {'apple': 1000, 'banana': 2000, 'orange': 1500}
+print(a['apple'])  # 1000
+a['banana'] = 2500  # 딕셔너리 값 수정
+print(a)  # {'apple': 1000, 'banana': 2500, 'orange': 1500}
+```
+​
+## 스택(Stack)
+​
+스택은 데이터를 넣고(push) 꺼내는(pop) 작업이 가능한 자료구조입니다. 마지막에 넣은 데이터가 가장 먼저 꺼내지는 후입선출(LIFO) 방식을 따릅니다. 파이썬에서는 리스트를 사용하여 스택을 구현할 수 있습니다.
+​
+예시:
+​
+```python
+stack = []
+​
+stack.append(1)  # push
+stack.append(2)
+stack.append(3)
+print(stack)  # [1, 2, 3]
+​
+print(stack.pop())  # 3 (pop)
+print(stack)  # [1, 2]
+```
+​
+## 큐(Queue)
+​
+큐는 데이터를 넣고(enqueue) 꺼내는(dequeue) 작업이 가능한 자료구조입니다. 먼저 넣은 데이터가 먼저 꺼내지는 선입선출(FIFO) 방식을 따릅니다. 파이썬에서는 collections 모듈의 deque 클래스를 사용하여 구현할 수 있습니다.
+​
+예시:
+​
+```python
+from collections import deque
+​
+a = deque([1, 2, 3])  # 큐 생성
+a.append(4)  # enqueue
+print(a)  # deque([1, 2, 3, 4])
+a.popleft()  # dequeue
+print(a)  # deque([2, 3, 4])
+```
+​
+## 힙(Heap)
+​
+힙은 최솟값 또는 최댓값을 빠르게 찾아내기 위한 이진트리 기반의 자료구조입니다. 부모 노드와 자식 노드 간의 관계를 이용하여 정렬된 트리를 구현하는 자료구조입니다. 최소 힙(min heap)에서는 부모 노드의 값이 자식 노드의 값보다 작거나 같고, 최대 힙(max heap)에서는 부모 노드의 값이 자식 노드의 값보다 크거나 같습니다. 파이썬에서는 heapq 모듈을 사용하여 힙을 구현할 수 있습니다.
+​
+예시:
+​
+```python
+import heapq
+​
+a = [3, 1, 4, 1, 5, 9, 2, 6, 5]
+heapq.heapify(a)  # 힙 생성
+print(a)  # [1, 1, 2, 6, 5, 9, 4, 3, 5]
+print(heapq.heappop(a))  # 1 (최솟값)
+print(a)  # [1, 3, 2, 6, 5, 9, 4, 5]
+```
+​
+```python
+import heapq
+​
+heap = []
+heapq.heappush(heap, 3)
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 2)
+print(heap)  # [1, 3, 2]
+​
+print(heapq.heappop(heap))  # 1
+print(heap)  # [2, 3]
+```
+​
+## 그래프(Graph)
+​
+그래프는 정점(Vertex)과 간선(Edge)으로 구성된 자료구조입니다. 파이썬에서는 dict 타입을 사용하여 구현할 수 있습니다.
+​
+예시:
+​
+```python
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D'],
+    'C': ['A', 'E'],
+    'D': ['B'],
+    'E': ['C']
+}
+​
+print(graph['A'])  # ['B', 'C']
+```
+​
+위와 같이 파이썬에서는 다양한 자료구조를 제공하며, 이를 적절하게 활용하여 프로그램을 작성할 수 있습니다.
+​
+## 해시테이블(Hash Table)
+​
+해시테이블은 키-값(Key-Value) 쌍으로 데이터를 저장하는 자료구조입니다. 키를 이용하여 값을 검색하거나 삽입, 삭제하는데 매우 효율적입니다. 파이썬에서는 딕셔너리(Dictionary) 타입을 사용하여 구현할 수 있습니다.
+​
+예시:
+​
+```python
+hash_table = {}
+hash_table['one'] = 1
+hash_table['two'] = 2
+hash_table['three'] = 3
+​
+print(hash_table)  # {'one': 1, 'two': 2, 'three': 3}
+print(hash_table['one'])  # 1
+```
+​
+## 트라이(Trie)
+​
+트라이는 문자열 검색에 효율적인 자료구조입니다. 문자열의 글자들을 노드로 나타내어 저장하는 트리 구조입니다. 파이썬에서는 별도의 모듈 없이 딕셔너리를 사용하여 구현할 수 있습니다.
+​
+예시:
+​
+```python
+trie = {}
+​
+def insert(string):
+    cur = trie
+    for char in string:
+        if char not in cur:
+            cur[char] = {}
+        cur = cur[char]
+    cur['*'] = True
+​
+insert('hello')
+insert('world')
+​
+print(trie)  # {'h': {'e': {'l': {'l': {'o': {'*': True}}}}}, 'w': {'o': {'r': {'l': {'d': {'*': True}}}}}}
+```
+​
+## 세트(Set)
+​
+세트는 중복되지 않은 데이터를 저장하는 자료구조입니다. 파이썬에서는 set 타입을 사용하여 구현할 수 있습니다.
+​
+예시:
+​
+```python
+set1 = set([1, 2, 3])
+set2 = set([2, 3, 4])
+​
+print(set1 & set2)  # {2, 3} (교집합)
+print(set1 | set2)  # {1, 2, 3, 4} (합집합)
+print(set1 - set2)  # {1} (차집합)
+```
+​
+## 덱(Deque)
+​
+덱은 양쪽 끝에서 삽입과 삭제가 모두 가능한 자료구조입니다. 파이썬에서는 collections 모듈의 deque 클래스를 사용하여 구현할 수 있습니다.
+​
+예시:
+​
+```python
+from collections import deque
+​
+d = deque([1, 2, 3])
+​
+d.appendleft(0)  # 왼쪽에 추가
+print(d)  # deque([0, 1, 2, 3])
+​
+d.extend([4, 5])  # 오른쪽에 추가
+print(d)  # deque([0, 1, 2, 3, 4, 5])
+​
+d.pop()  # 오른쪽에서 꺼냄
+print(d)  # deque([0, 1, 2, 3, 4])
+```
+​
+## OrderedDict
+​
+OrderedDict는 딕셔너리와 비슷하지만, 키-값 쌍이 추가된 순서를 기억하는 자료구조입니다. 파이썬에서는 collections 모듈의 OrderedDict 클래스를 사용하여 구현할 수 있습니다.
+​
+예시:
+​
+```python
+from collections import OrderedDict
+​
+d = OrderedDict()
+​
+d['banana'] = 3
+d['apple'] = 4
+d['pear'] = 1
+​
+print(d)  # OrderedDict([('banana', 3), ('apple', 4), ('pear', 1)])
+```
+​
+파이썬에서 제공하는 다양한 자료구조를 적절하게 사용하여, 프로그램의 효율성을 높일 수 있습니다.
+​
+## 디폴트 딕셔너리(Default Dictionary)
+​
+디폴트 딕셔너리는 존재하지 않는 키에 대해 값을 지정해 놓을 수 있는 딕셔너리입니다. 존재하지 않는 키에 접근할 때마다 디폴트 값을 반환합니다. 파이썬에서는 collections 모듈의 defaultdict 클래스를 사용하여 구현할 수 있습니다.
+​
+예시:
+​
+```python
+from collections import defaultdict
+​
+d = defaultdict(int)
+d['apple'] += 1
+d['banana'] += 2
+print(d)  # defaultdict(<class 'int'>, {'apple': 1, 'banana': 2})
+```
+​
+## 카운터(Counter)
+​
+카운터는 시퀀스(문자열, 리스트 등)에 있는 각 요소의 개수를 셀 수 있는 딕셔너리의 서브 클래스입니다. 파이썬에서는 collections 모듈의 Counter 클래스를 사용하여 구현할 수 있습니다.
+​
+예시:
+​
+```python
+from collections import Counter
+​
+c = Counter('hello, world')
+print(c)  # Counter({'l': 3, 'o': 2, ' ': 2, 'e': 1, 'h': 1, ',': 1, 'w': 1, 'r': 1, 'd': 1})
+```
+​
+## 네임드 튜플(Named Tuple)
+​
+파이썬에서 네임드 튜플(namedtuple)은 일반적인 튜플과 유사하지만, 각 항목에 이름을 부여할 수 있는 클래스입니다. 네임드 튜플을 사용하면 코드의 가독성을 높일 수 있으며, 튜플의 항목에 접근할 때 인덱스를 사용하는 대신 이름을 사용할 수 있어 코드를 보다 직관적으로 만들어 줍니다.
+​
+네임드 튜플을 정의하려면 `collections` 모듈에서 `namedtuple` 함수를 임포트하고, 이름과 필드 이름을 지정해주면 됩니다. 필드 이름은 문자열로 지정하며, 여러 개의 필드 이름은 쉼표로 구분합니다. 다음은 `Point`라는 이름의 네임드 튜플을 정의하는 예시입니다.
+​
+```python
+from collections import namedtuple
+​
+Point = namedtuple('Point', ['x', 'y'])
+```
+​
+위 코드에서 `namedtuple` 함수의 첫 번째 인자로는 네임드 튜플의 이름인 `Point`를 지정하고, 두 번째 인자로는 필드 이름을 담은 리스트를 전달합니다. 이제 `Point` 클래스는 일반적인 클래스처럼 사용할 수 있습니다. 다음은 `Point` 클래스의 객체를 생성하는 예시입니다.
+​
+```python
+p = Point(1, 2)
+```
+​
+위 코드에서 `Point` 클래스의 객체 `p`를 생성하고, `x`와 `y`라는 이름의 필드에 각각 `1`과 `2`라는 값을 할당합니다. 네임드 튜플의 필드에 접근할 때는 `.`을 사용하여 접근할 수 있습니다. 다음은 `p` 객체의 필드에 접근하는 예시입니다.
+​
+```python
+print(p.x) # 출력: 1
+print(p.y) # 출력: 2
+```
+​
+네임드 튜플은 일반적인 튜플의 모든 기능을 지원하며, 불변성을 유지하므로 수정이 불가능합니다. 네임드 튜플의 장점은 코드의 가독성과 직관성을 높여준다는 것입니다. 특히, 함수에서 여러 개의 값을 반환할 때 튜플 대신 네임드 튜플을 사용하면 반환값에 대한 설명을 추가할 수 있어 함수의 사용법을 명확하게 만들어줍니다.

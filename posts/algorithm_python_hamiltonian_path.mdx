@@ -1,0 +1,48 @@
+---
+title: 알고리즘 이론 | 해밀턴 경로(Hamiltonian path) 파이썬으로 구현하기
+date: 2023-03-28
+description: 파이썬으로 해밀턴 경로를 구현하는 방법에 대해 알아봅니다.
+category: algorithm
+---
+
+해밀턴 경로(Hamiltonian path)는 그래프에서 모든 정점을 한 번씩만 방문하면서 이동하는 경로입니다. 파이썬으로 해밀턴 경로를 구하는 알고리즘은 다음과 같습니다.
+
+1.  그래프의 모든 정점에 대해, 해당 정점을 시작점으로 해서 DFS 탐색을 시작합니다.
+2.  DFS 탐색에서, 이미 방문한 정점은 다시 방문하지 않도록 체크합니다.
+3.  DFS 탐색에서, 모든 정점을 방문한 경우에는 해당 경로를 반환합니다.
+4.  DFS 탐색에서, 방문하지 않은 정점을 선택해서 다음 DFS 탐색을 수행합니다.
+
+파이썬 코드로 구현하면 다음과 같습니다.
+
+```python
+def find_hamiltonian_path(graph):
+    def dfs(current, visited, path):
+        visited[current] = True
+        path.append(current)
+
+        if len(path) == len(graph):
+            return path
+
+        for neighbor in graph[current]:
+            if not visited[neighbor]:
+                result = dfs(neighbor, visited, path)
+                if result:
+                    return result
+
+        visited[current] = False
+        path.pop()
+        return None
+
+    for start in graph:
+        visited = {node: False for node in graph}
+        path = []
+        result = dfs(start, visited, path)
+        if result:
+            return result
+
+    return None
+```
+
+이 함수는 인접리스트 형태의 그래프를 입력으로 받아, 해밀턴 경로를 반환합니다. 함수 내부에서는 깊이 우선 탐색(dfs)을 사용하여 현재 정점에서 이웃한 정점을 방문하며 경로를 확장합니다. 이 때, 방문한 정점을 표시하고, 현재까지의 경로를 저장합니다. 경로가 그래프의 모든 정점을 방문하는 경로가 되면, 이 경로를 반환합니다.
+
+만약 현재 정점에서 이웃한 정점들 중 해밀턴 경로가 존재하는 경로가 있다면, 해당 경로를 반환합니다. 그렇지 않으면, 이전에 방문했던 정점을 다시 방문할 수 있도록 visited\[current\]를 False로 설정하고, 이전 경로에서 현재 정점을 제거합니다. 마지막으로, 해밀턴 경로를 찾을 수 없는 경우 None을 반환합니다.

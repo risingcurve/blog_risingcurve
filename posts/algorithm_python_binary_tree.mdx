@@ -1,0 +1,44 @@
+---
+title: 알고리즘 이론 | 이진 트리(Binary Tree) 파이썬으로 구현하기
+date: 2023-04-06
+description: 파이썬으로 이진 트리를 구현하는 방법에 대해 알아봅니다.
+category: algorithm
+---
+
+이진 트리(Binary Tree)는 각 노드가 최대 두 개의 자식 노드를 갖는 트리 자료구조입니다. 이진 트리는 컴퓨터 과학 분야에서 널리 사용되며, 예를 들어 검색 트리, 힙(Heap), 트라이(Trie) 등을 구현하는 데 사용됩니다.
+
+이진 트리를 파이썬으로 구현하는 방법은 여러 가지가 있지만, 가장 기본적인 방법은 노드 클래스와 트리 클래스를 따로 정의하는 것입니다. 각 노드는 자신의 값(value)과 왼쪽 자식 노드(left)와 오른쪽 자식 노드(right)를 갖습니다. 트리 클래스는 루트 노드(root)를 갖습니다.
+
+아래는 이진 트리를 파이썬으로 구현하는 예시 코드입니다.
+
+```python
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+class BinaryTree:
+    def __init__(self, root_value):
+        self.root = Node(root_value)
+
+    def insert_left(self, parent_node, new_node_value):
+        if parent_node.left is None:
+            parent_node.left = Node(new_node_value)
+        else:
+            new_node = Node(new_node_value)
+            new_node.left = parent_node.left
+            parent_node.left = new_node
+
+    def insert_right(self, parent_node, new_node_value):
+        if parent_node.right is None:
+            parent_node.right = Node(new_node_value)
+        else:
+            new_node = Node(new_node_value)
+            new_node.right = parent_node.right
+            parent_node.right = new_node
+```
+
+위 코드에서 Node 클래스는 이진 트리의 노드를 나타내며, BinaryTree 클래스는 이진 트리를 나타냅니다. BinaryTree 클래스는 루트 노드를 초기화하는 생성자(**init**)와 노드를 삽입하는 insert\_left와 insert\_right 메서드를 포함합니다.
+
+insert\_left와 insert\_right 메서드는 각각 부모 노드(parent\_node)와 새로운 노드의 값(new\_node\_value)을 인자로 받습니다. 만약 부모 노드의 왼쪽 또는 오른쪽 자식 노드가 비어있다면, 새로운 노드를 삽입합니다. 그렇지 않다면, 새로운 노드를 부모 노드의 왼쪽 또는 오른쪽 자식 노드로 삽입합니다.
